@@ -1,0 +1,31 @@
+---
+title: "Librairies R"
+author: "JcB"
+date: "9 juillet 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Librairies installées sur MacBook Air en juilet 2016
+----------------------------------------------------
+```{r}
+file <- "Data/MBA_Installed.csv"
+mba <- read.csv(file, stringsAsFactors = FALSE)
+mba <- mba$Package
+
+# librairies installées sur IMac
+imac <- installed.packages()[,"Package"]
+
+
+# différence
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+new.packages <- mba[!(mba %in% imac)]
+
+# if(length(new.packages)) install.packages(new.packages)
+```
+
+
+
